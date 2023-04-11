@@ -1,0 +1,10 @@
+$background-color: black;
+$font-color: white;
+
+//Flex Centering Mixin
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
