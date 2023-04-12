@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .background {
   height: 100vh;
   width: 100vw;
@@ -33,9 +37,43 @@
     #cb7dcb 80%,
     #757ecb 100%
   );
-}
-
-.cloud {
-  width: auto;
-  filter: invert(1);
+  overflow: hidden;
+  .cloud {
+    width: auto;
+    height: 15vh;
+    filter: invert(1);
+    position: absolute;
+    // transform: translateX(50vw);
+    overflow: hidden;
+    // padding: 5vh;
+    transition-duration: 20s;
+    transition-property: margin-left;
+    transition-timing-function: linear;
+  }
+  #cloud0 {
+    top: 10vh;
+    left: 4vw;
+    margin-left: 0px;
+    // transform: translateX(-10vw);
+  }
+  #cloud1 {
+    top: 23vh;
+    left: 37vw;
+    margin-left: 0;
+  }
+  #cloud2 {
+    top: 41vh;
+    left: 21vw;
+    margin-left: 0;
+  }
+  #cloud3 {
+    top: 5vh;
+    left: 67vw;
+    margin-left: 0;
+  }
+  #cloud4 {
+    top: 28vh;
+    left: 85vw;
+    margin-left: 0;
+  }
 }
