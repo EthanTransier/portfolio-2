@@ -8,3 +8,21 @@ $font-color: white;
   align-items: center;
   flex-direction: $direction;
 }
+
+// Font Type Mixin
+@mixin font($font-size) {
+  color: $font-color;
+  font-family: $font-size;
+  @font-face {
+    font-family: regular;
+    src: url(../../montserrat/static/Montserrat-Regular.ttf);
+  }
+  @font-face {
+    font-family: bold;
+    src: url(../../montserrat/static/Montserrat-Bold.ttf);
+  }
+  @font-face {
+    font-family: light;
+    src: url(../..//montserrat/static/Montserrat-Light.ttf);
+  }
+}

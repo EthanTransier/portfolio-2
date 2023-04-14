@@ -6,44 +6,116 @@ function randomVh() {
 function randomTime() {
   return Math.random() * 10000 + 25000
 }
-$(window).on('load', function(){
-    for(var i = 0; i < 5; i++){
-        $('<img>', {
-            src: clouds[Math.floor(Math.random() * 6)],
-            id: 'cloud' + i,
-            class: 'cloud',
-        }).css('height', randomVh() + 'vh').appendTo('.background');
-    }
+
+// add an event listener to the window object
+window.addEventListener('load', function() {
+  // disableScroll();
+  // scroll to the top of the page
+  window.scroll(0, 0);
+});
+
+$(window).on('load', function(){ 
+  
+  for(var i = 0; i < 5; i++){
+    $('<img>', {
+        src: clouds[Math.floor(Math.random() * 6)],
+        id: 'cloud' + i,
+        class: 'cloud',
+    }).css('height', randomVh() + 'vh').appendTo('.background');
+  }
 })
 
- const delayAnimation = setTimeout(cloud0Animate, 1)
+//  const delayAnimation = setTimeout(cloud0Animate, 1)
+//  let cloudTimes = [];
+//  let cloudTimeout = [];
 
- function cloud0Animate(){
-  for(let i=0; i < 5; i++){
-    cloud0Animate2('cloud' + i)
-    // console.log(duration)
-    // document.getElementById('cloud' + i).style.marginLeft = '110vw';
-    // setTimeout(function(){
-    //   document.getElementById('cloud' + i).style.marginLeft = '-110vw'
-    //   // setTimeout(function(){cloud0Animate()}, document.getElementById('cloud' + i).style.transitionDuration)
-    // }, duration)
+//  function cloud0Animate(){
+//   cloudTimes = [];
+//   cloudTimeout = [];
+//   for(let i=0; i < 5; i++){
+//     if(i == 1 || i == 3){
+//       document.getElementById('cloud' + i).style.marginLeft = '-75vw'
+//     }else{
+//       document.getElementById('cloud' + i).style.marginLeft = '105vw'      
+//     }
+    
+//     cloudTimes.push(window.getComputedStyle(document.getElementById('cloud' + i)).getPropertyValue('transition-duration').replace('s', '') * 1000)
+//     cloudTimeout.push(setTimeout(function(){
+//       cloud0Animate2('cloud' + i)
+//     }, cloudTimes[i])) 
+//   }
+// }
+
+// function cloud0Animate2(cloudID){
+//   if(cloudID.replace('cloud', '') == 1 || cloudID.replace('cloud', '') == 3){
+//     document.getElementById(cloudID).style.marginLeft = '105vw'
+//   }else{
+//     document.getElementById(cloudID).style.marginLeft = '-30vw'
+//   }
+
+//   cloudTimeout.push(setTimeout(function(){
+//     cloud0Animate3(cloudID)
+//   }, cloudTimes[cloudID.replace('cloud', '')])) 
+// }
+
+// function cloud0Animate3(cloudID){
+//   if(cloudID.replace('cloud', '') == 1 || cloudID.replace('cloud', '') == 3){
+//     document.getElementById(cloudID).style.marginLeft = '-30vw'
+//   }else{
+//     document.getElementById(cloudID).style.marginLeft = '105vw'
+//   }
+
+//   cloudTimeout.push(setTimeout(function(){
+//     cloud0Animate2(cloudID)
+//   }, cloudTimes[cloudID.replace('cloud', '')])) 
+// }
+
+window.addEventListener('keydown', function(e) {
+  if(e.code == 32 && e.target == document.body) {
+    e.preventDefault();
+  } 
+});
+
+// select the element you want to add the event listener to
+const element = document.querySelector('body');
+
+// add the event listener
+element.addEventListener('keydown', function(event) {
+  if (event.code === 'Space') {
+    // play your desired action here, for example:
+    console.log('The spacebar was pressed!');
+    startGame();
   }
-  
-  // const delayAnimation = setTimeout(cloud0Animate2, 40000);
+});
+
+function disableScroll() {
+  // disable scroll wheel on all devices
+  document.body.addEventListener('wheel', function(event) {
+    event.preventDefault();
+  }, {passive: false});
+
+  // disable touch scroll on mobile devices
+  document.body.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+  }, {passive: false});
 }
 
-function cloud0Animate2(cloudID){
-  let element = document.getElementById(cloudID);
-  let style = window.getComputedStyle(element);
-  let duration = style.getPropertyValue('transition-duration');
-  let newDuration = duration.replace('s', '') * 1000;
-  console.log(newDuration)
-  element.style.marginLeft = '110vw';
-    setTimeout(function(){
-      console.log('switch')
-      element.style.marginLeft = '-110vw'
-      setTimeout(function() {
-        cloud0Animate2(cloudID)
-      }, newDuration)
-    }, newDuration)
+
+function startGame(){
+  window.scroll({
+    top: 900,
+    left: 0,
+    behavior: "smooth",
+  });
 }
+
+// function pauseOceanAnimation(){
+//   const paths = document.getElementsByClassName('oceanPath');
+//   console.log(paths)
+  
+//   for(let i = 0; i < paths.length; i++){
+//     paths[i].style.animationPlayState = "paused"
+//   }
+// }
+// setTimeout(pauseOceanAnimation, (7000/4) * 4)
+// pauseOceanAnimation()
