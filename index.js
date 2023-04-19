@@ -102,12 +102,17 @@ function disableScroll() {
 
 
 function startGame(){
-  window.scroll({
+  console.log('start')
+  window.scrollTo({
     top: 900,
     left: 0,
     behavior: "smooth",
   });
 }
+
+$(window).on('scroll', function() {
+  $('.background').not('.ocean').not('.cloud').not('.canoeImage').not('.manImage').not('.oceanBackground').css('margin-top', $(window).scrollTop() * -.3);
+});
 
 // function pauseOceanAnimation(){
 //   const paths = document.getElementsByClassName('oceanPath');

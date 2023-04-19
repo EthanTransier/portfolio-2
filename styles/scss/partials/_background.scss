@@ -24,6 +24,7 @@ body {
     text-align: center;
     width: 100%;
     font-size: 2rem;
+    text-shadow: rgb(0, 204, 255) 1px 0 10px;
   }
   background: -webkit-linear-gradient(
     #c6e4ee 0%,
@@ -113,6 +114,7 @@ body {
     margin-bottom: 20vh;
     height: 50vh;
     width: 100vw;
+    position: absolute;
     svg {
       width: 100vw;
       display: block;
@@ -170,6 +172,7 @@ body {
     }
     .canoeImage {
       position: absolute;
+      z-index: 3;
       margin: 0 auto;
       width: 25vw;
       height: 25vh;
@@ -179,6 +182,20 @@ body {
       margin-top: 53vh;
       transform: rotate(4deg);
       animation: canoeAnimate 7s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    .manImage {
+      position: absolute;
+      width: 10vw;
+      height: auto;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      margin-left: 40vw;
+      margin-top: 55vh;
+      transform: rotate(4deg);
+      animation: manAnimate 7s;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
     }
@@ -201,6 +218,28 @@ body {
       }
       100% {
         margin-top: 53vh;
+        transform: rotate(4deg);
+      }
+    }
+    @keyframes manAnimate {
+      0% {
+        margin-top: 55vh;
+        transform: rotate(4deg);
+      }
+      25% {
+        margin-top: 59vh;
+        transform: rotate(-1deg);
+      }
+      50% {
+        margin-top: 56vh;
+        transform: rotate(-4deg);
+      }
+      75% {
+        margin-top: 53vh;
+        transform: rotate(0deg);
+      }
+      100% {
+        margin-top: 55vh;
         transform: rotate(4deg);
       }
     }
