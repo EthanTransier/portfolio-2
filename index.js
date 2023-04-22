@@ -60,7 +60,7 @@ function disableScroll() {
 function startGame(){
   console.log('start')
   window.scroll({
-    top: 1000,
+    top: 5000,
     left: 0,
     behavior: "smooth",
   });
