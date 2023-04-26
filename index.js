@@ -44,23 +44,10 @@ window.addEventListener('keydown', function(e) {
   }
 });
 
-function disableScroll() {
-  // disable scroll wheel on all devices
-  document.body.addEventListener('wheel', function(event) {
-    event.preventDefault();
-  }, {passive: false});
-
-  // disable touch scroll on mobile devices
-  document.body.addEventListener('touchmove', function(event) {
-    event.preventDefault();
-  }, {passive: false});
-}
-
-
 function startGame(){
   console.log('start')
   window.scroll({
-    top: 1000,
+    top: 6000,
     left: 0,
     behavior: "smooth",
   });
