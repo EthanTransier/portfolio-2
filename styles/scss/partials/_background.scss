@@ -20,6 +20,7 @@ body {
     width: 110vw;
     transform: translateX(-1.5vw) translateY(-22vh);
     color: white;
+    letter-spacing: 1px;
     @include font(bold);
     text-shadow: none;
     overflow: hidden;
