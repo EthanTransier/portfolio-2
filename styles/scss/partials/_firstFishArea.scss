@@ -8,3 +8,27 @@
   background-color: rgba(0, 95, 112, 1);
   // margin-bottom: 30vh;
 }
+.hook {
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  z-index: 10;
+  width: 2vw;
+  height: auto;
+  transform: translateY(-33vh);
+}
+.normFish {
+  position: absolute;
+  top: 250vh;
+  z-index: 4;
+  width: 15.5vw;
+  height: auto;
+  animation: normFishMovement;
+}
+
+@keyframes normFishMovement {
+  0% {
+  }
+  100% {
+  }
+}

@@ -40,6 +40,7 @@ const element = document.querySelector('body');
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
     startGame();
+    endScroll();
     e.preventDefault();
   }
 });
@@ -47,8 +48,22 @@ window.addEventListener('keydown', function(e) {
 function startGame(){
   console.log('start')
   window.scroll({
-    top: 6000,
+    top: 2360,
     left: 0,
     behavior: "smooth",
   });
 }
+
+function endScroll(){
+  var mouseX;
+var mouseY;
+$(document).mousemove( function(e) {
+   mouseX = e.pageX; 
+   mouseY = e.pageY;
+});
+$('.hook').css({'top': 0,'left': 0})
+$(window).mousemove(function(){
+  $('.hook').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
+});
+}
+

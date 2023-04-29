@@ -8,6 +8,7 @@ body {
   scrollbar-width: none; /* Firefox */
   height: auto;
   overflow: hidden;
+  cursor: none;
 }
 .background {
   min-height: 100vh;
@@ -184,13 +185,28 @@ body {
       background: rgb(0, 95, 112);
       background: linear-gradient(
         0deg,
-        rgba(0, 95, 112, 1) 0%,
+        rgba(0, 95, 112, 1) 10%,
         rgba(7, 195, 210, 1) 70%
       );
       background-size: contain;
       background-repeat: no-repeat;
       position: absolute;
       margin-top: 49vh;
+    }
+    .oceanFilter {
+      width: 100vw;
+      height: 400vh;
+      background: rgb(141, 238, 255);
+      background: linear-gradient(
+        0deg,
+        rgba(0, 150, 176, 0.2) 30%,
+        rgba(7, 195, 210, 0) 100%
+      );
+      top: 0;
+      left: 0;
+      position: absolute;
+      margin-top: 49vh;
+      z-index: 5;
     }
     .canoeImage {
       position: absolute;
