@@ -25,6 +25,26 @@ $(window).on('load', function(){
         class: 'cloud',
     }).css('height', randomVh() + 'vh').appendTo('.background');
   }
+  
+})
+
+$(window).on('mousedown', function(){
+  let rect1 = document.getElementById('hook').getBoundingClientRect();
+    let rect2 = document.getElementById('normFish').getBoundingClientRect();
+    var overlap = !(
+      rect1.right < rect2.left || 
+      rect1.left > rect2.right || 
+      rect1.bottom < rect2.top || 
+      rect1.top > rect2.bottom)
+    console.log(overlap)
+  
+  if(overlap == true){
+    window.scroll({
+    top: -800,
+    left: 0,
+    behavior: "smooth",
+  });
+  }
 })
 
 window.addEventListener('keydown', function(e) {
@@ -65,5 +85,6 @@ $('.hook').css({'top': 0,'left': 0})
 $(window).mousemove(function(){
   $('.hook').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
 });
+
 }
 
