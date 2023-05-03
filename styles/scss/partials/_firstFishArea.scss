@@ -17,6 +17,16 @@
   height: auto;
   transform: translateY(-33vh);
 }
+.hookLine {
+  height: 105vh;
+  width: 0.45vw;
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  z-index: 10;
+  background-color: black;
+  transform: translateY(-135vh) translateX(4.5vw);
+}
 .normFish {
   position: absolute;
   top: 250vh;
@@ -28,19 +38,35 @@
   animation-duration: 15s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
+  transform: ease-in-out 5s;
 }
 
 @keyframes normFishMovement {
   0% {
     transform: translate(0, 0) scale(-1, 1);
   }
-  49% {
+  24% {
     transform: translate(50vw, 50vh) scale(-1, 1);
   }
-  51% {
+  26% {
     transform: translate(50vw, 50vh) scale(1, 1);
   }
-  100% {
+  49% {
     transform: translate(0, 25vh) scale(1, 1);
+  }
+  51% {
+    transform: translate(0, 22vh) scale(-1, 1);
+  }
+  74% {
+    transform: translate(72vw, 5vh) scale(-1, 1);
+  }
+  76% {
+    transform: translate(72vw, 5vh) scale(1, 1);
+  }
+  98% {
+    transform: translate(0, 0) scale(1, 1);
+  }
+  100% {
+    transform: translate(0, 0) scale(-1, 1);
   }
 }

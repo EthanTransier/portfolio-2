@@ -1,4 +1,4 @@
-
+var scrolledUp = true;
 
 const clouds = ['./images/cloud (1).svg', './images/cloud-16-filled.svg', './images/cloud-20-solid.svg', './images/cloud-bold.svg', './images/cloud-filled.svg', './images/cloud.svg']
 function randomVh() {
@@ -39,6 +39,11 @@ $(window).on('mousedown', function(){
     console.log(overlap)
   
   if(overlap == true){
+  scrolledUp = true;
+    $('.hook').css({'top': 0,'left': 0})
+    $(window).off()
+    $('.hookLine').css({'top': 0,'left': 0})
+    $(window).off();
     window.scroll({
     top: -800,
     left: 0,
@@ -76,15 +81,21 @@ function startGame(){
 
 function endScroll(){
   var mouseX;
-var mouseY;
-$(document).mousemove( function(e) {
-   mouseX = e.pageX; 
-   mouseY = e.pageY;
-});
-$('.hook').css({'top': 0,'left': 0})
-$(window).mousemove(function(){
-  $('.hook').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
-});
-
+  var mouseY;
+  $(document).mousemove( function(e) {
+    mouseX = e.pageX; 
+    mouseY = e.pageY;
+  });
+  scrolledUp = false;
+  if(scrolledUp == false){
+    $('.hook').css({'top': 0,'left': 0})
+    $(window).mousemove(function(){
+      $('.hook').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
+    });
+    $('.hookLine').css({'top': 0,'left': 0})
+    $(window).mousemove(function(){
+      $('.hookLine').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
+    });
+  } 
 }
 
