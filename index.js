@@ -1,4 +1,5 @@
 var scrolledUp = true;
+var scrolledDown = false;
 
 const clouds = ['./images/cloud (1).svg', './images/cloud-16-filled.svg', './images/cloud-20-solid.svg', './images/cloud-bold.svg', './images/cloud-filled.svg', './images/cloud.svg']
 function randomVh() {
@@ -65,7 +66,10 @@ const element = document.querySelector('body');
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
     startGame();
-    endScroll();
+    scrolledDown = true;
+    $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
+    $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
+    let animateHook = setTimeout(finishHookAnimation, 750)
     e.preventDefault();
   }
 });
@@ -78,24 +82,37 @@ function startGame(){
     behavior: "smooth",
   });
 }
+var mouseX = window.innerWidth / 2;
+var mouseY = window.innerHeight / 2;
 
+$(document).mousemove( function(e) {
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+ 
+});
 function endScroll(){
-  var mouseX;
-  var mouseY;
-  $(document).mousemove( function(e) {
-    mouseX = e.pageX; 
-    mouseY = e.pageY;
-  });
-  scrolledUp = false;
-  if(scrolledUp == false){
-    $('.hook').css({'top': 0,'left': 0})
-    $(window).mousemove(function(){
-      $('.hook').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
-    });
-    $('.hookLine').css({'top': 0,'left': 0})
-    $(window).mousemove(function(){
-      $('.hookLine').css({'top':mouseY,'left':mouseX}).fadeIn('slow');
-    });
-  } 
+  
+}
+
+var timer = null;
+window.addEventListener('scroll', function() {
+  console.log('scrolled')  
+  if(timer !== null) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+      console.log('finish scroll')
+      if(scrolledDown == true){
+        endScroll();
+      }
+    }, 200);
+}, false); 
+
+function finishHookAnimation(){
+  $(window).on("click", function(){
+     console.log(mouseX + " " + mouseY)
+    $('.hook').animate({'top': mouseY, 'left': mouseX})
+    $('.hookLine').animate({'top': mouseY, 'left': mouseX})
+  })
 }
 

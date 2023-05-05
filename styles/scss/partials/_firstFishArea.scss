@@ -10,22 +10,27 @@
 }
 .hook {
   position: absolute;
-  top: 0;
-  left: -50vw;
   z-index: 10;
   width: 5.5vw;
   height: auto;
   transform: translateY(-33vh);
+  top: 0;
+  left: 45.5vw;
+  right: 0;
+  bottom: 0;
+  // margin: auto;
 }
 .hookLine {
   height: 105vh;
-  width: 0.45vw;
+  width: 0.44vw;
   position: absolute;
   top: 0;
-  left: -50vw;
+  left: 50vw;
+  right: 0;
+  bottom: 0;
   z-index: 10;
   background-color: black;
-  transform: translateY(-135vh) translateX(4.5vw);
+  transform: translateY(-135vh);
 }
 .normFish {
   position: absolute;
@@ -70,3 +75,11 @@
     transform: translate(0, 0) scale(-1, 1);
   }
 }
+// @keyframes hookDown {
+//   0% {
+//     top: 0px;
+//   }
+//   100% {
+//     top: 2360px;
+//   }
+// }
