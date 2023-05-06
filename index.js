@@ -112,7 +112,7 @@ function finishHookAnimation(){
   $(window).on("click", function(){
      console.log(mouseX + " " + mouseY)
     $('.hook').animate({'top': mouseY, 'left': mouseX})
-    $('.hookLine').animate({'top': mouseY, 'left': mouseX})
+    $('.hookLine').animate({'top': mouseY, 'left': (mouseX + $('.hook').width() - ($('.hookLine').width() * 2.3))})
   })
 }
 

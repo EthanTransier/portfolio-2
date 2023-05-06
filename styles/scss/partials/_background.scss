@@ -17,16 +17,22 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   .name {
-    font-size: 10.7rem;
+    font-size: clamp(3.4rem, -0.137rem + 11.318vw, 10.7rem);
+    @media screen and (max-width: 500px) {
+      font-size: clamp(3rem, 1.547rem + 4.651vw, 6rem);
+    }
     width: 110vw;
-    transform: translateX(-1.5vw) translateY(-22vh);
+    transform: translateX(-1.75vw) translateY(16vh);
+    text-align: left;
     color: white;
     letter-spacing: 1px;
     @include font(bold);
     text-shadow: none;
     overflow: hidden;
     position: absolute;
-    z-index: 0;
+    z-index: 2;
+    top: 0;
+    left: 0;
   }
   h1 {
     @include font(light);
@@ -78,8 +84,9 @@ body {
   .cloud {
     width: auto;
     height: 15vh;
-    filter: invert(1);
+    filter: invert(0.9);
     position: absolute;
+    z-index: 0;
     // transform: translateX(50vw);
     overflow: hidden;
     // padding: 5vh;
@@ -93,21 +100,21 @@ body {
     margin-left: 0px;
     transition-duration: 24s;
     // transform: translateX(-10vw);
-    animation: cloud0Animation 33s infinite linear;
+    animation: cloud0Animation 66s infinite linear;
   }
   #cloud1 {
     top: 23vh;
     left: 37vw;
     margin-left: 0;
     // transition-duration: 33s;
-    animation: cloud1Animation 35s infinite linear;
+    animation: cloud1Animation 70s infinite linear;
   }
   #cloud2 {
     top: 41vh;
     left: 21vw;
     margin-left: 0;
     // transition-duration: 21s;
-    animation: cloud2Animation 28s infinite linear;
+    animation: cloud2Animation 56s infinite linear;
   }
   #cloud3 {
     top: 5vh;
@@ -129,6 +136,7 @@ body {
     height: 50vh;
     width: 100vw;
     position: absolute;
+    z-index: 3;
     bottom: 0;
     left: 0;
     svg {
