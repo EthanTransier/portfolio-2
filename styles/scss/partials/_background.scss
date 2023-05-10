@@ -17,10 +17,14 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   .name {
+<<<<<<< Updated upstream
     font-size: clamp(3.4rem, -0.137rem + 11.318vw, 10.7rem);
     @media screen and (max-width: 500px) {
       font-size: clamp(3rem, 1.547rem + 4.651vw, 6rem);
     }
+=======
+    font-size: clamp(1.65rem, -0.16rem + 11.584vw, 10.7rem);
+>>>>>>> Stashed changes
     width: 110vw;
     transform: translateX(-1.75vw) translateY(16vh);
     text-align: left;
