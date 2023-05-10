@@ -45,11 +45,7 @@ $(window).on('mousedown', function(){
     $(window).off()
     $('.hookLine').css({'top': 0,'left': 0})
     $(window).off();
-    window.scroll({
-    top: 700,
-    left: 0,
-    behavior: "smooth",
-  });
+    document.getElementById('projectsTabID').scrollIntoView();
   }
 })
 
@@ -76,11 +72,7 @@ window.addEventListener('keydown', function(e) {
 
 function startGame(){
   console.log('start')
-  window.scroll({
-    top: 2360,
-    left: 0,
-    behavior: "smooth",
-  });
+  document.getElementById('beach').scrollIntoView();
 }
 var mouseX = window.innerWidth / 2;
 var mouseY = window.innerHeight / 2;

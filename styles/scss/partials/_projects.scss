@@ -1,9 +1,32 @@
 // Holds Everything in the projects area
 .projectsTab {
+  background-image: url(../../images/sunrays.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   left: 0;
   top: 100vh;
   z-index: 5;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  .projectsTitle {
+    width: calc(100vw - 4rem);
+    height: auto;
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+  }
+  .card {
+    -webkit-box-shadow: 0px 0px 16px 3px white;
+    -moz-box-shadow: 0px 0px 16px 3px white;
+    box-shadow: 0px 0px 16px 3px white;
+  }
 }
