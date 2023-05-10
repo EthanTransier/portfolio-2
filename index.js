@@ -46,7 +46,7 @@ $(window).on('mousedown', function(){
     $('.hookLine').css({'top': 0,'left': 0})
     $(window).off();
     window.scroll({
-    top: -800,
+    top: 700,
     left: 0,
     behavior: "smooth",
   });
