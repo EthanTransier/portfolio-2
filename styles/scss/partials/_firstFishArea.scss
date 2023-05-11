@@ -43,7 +43,8 @@
   animation-duration: 15s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  transform: ease-in-out 5s;
+  transition: ease-in-out 5s;
+  animation-play-state: running;
 }
 
 @keyframes normFishMovement {

@@ -1,9 +1,5 @@
 // Holds Everything in the projects area
 .projectsTab {
-  background-image: url(../../images/sunrays.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -17,6 +13,15 @@
   z-index: 5;
   padding-right: 2rem;
   padding-left: 2rem;
+  .sunrays {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 100vh;
+    z-index: 4;
+    opacity: 0.5;
+  }
   .projectsTitle {
     width: calc(100vw - 4rem);
     height: auto;
