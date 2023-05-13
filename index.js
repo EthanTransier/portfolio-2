@@ -89,10 +89,13 @@ window.addEventListener('keydown', function(e) {
       startGame();
       fishInteract();
       scrolledDown = true;
-      $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
-      $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
-      let animateHook = setTimeout(finishHookAnimation, 750)
-      e.preventDefault();
+      let hookTop = document.getElementById('hook').getBoundingClientRect().top;
+    $('.hook').css('top', hookTop) 
+    $('.hook').removeClass('hookAnimation');
+    $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
+    $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
+    let animateHook = setTimeout(finishHookAnimation, 750)
+    e.preventDefault();
     }
   }
 });
@@ -126,7 +129,17 @@ window.addEventListener('scroll', function() {
 
 function finishHookAnimation(){
   $(window).on("click", function(){
+     console.log(mouseX + " " + mouseY)
+
+    
     $('.hook').animate({'top': mouseY, 'left': mouseX})
     $('.hookLine').animate({'top': mouseY, 'left': (mouseX + $('.hook').width() - ($('.hookLine').width() * 2.3))})
   })
 }
+
+let pauseAnimation = setInterval(function() {
+  console.log('hook data: ')
+  console.log(document.getElementById('hook').getBoundingClientRect())
+  console.log('hook line data: ')
+  console.log(document.getElementById('hookLine').getBoundingClientRect())
+}, 1000)

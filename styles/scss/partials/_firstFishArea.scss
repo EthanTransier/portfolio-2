@@ -20,6 +20,14 @@
   bottom: 0;
   // margin: auto;
 }
+.hookAnimation {
+  animation: hookAnimate 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.hookPaused {
+  animation-play-state: paused;
+}
 .hookLine {
   height: 105vh;
   width: 0.44vw;
@@ -138,6 +146,28 @@
   }
   100% {
     transform: translate(0, 50vh) scale(1, 1);
+  }
+}
+@keyframes hookAnimate {
+  0% {
+    top: 55.6vh;
+    left: 38.1vw;
+  }
+  25% {
+    top: 60vh;
+    left: 37.5vw;
+  }
+  50% {
+    top: 57vh;
+    left: 37.5vw;
+  }
+  75% {
+    top: 54vh;
+    left: 37.5vw;
+  }
+  100% {
+    top: 55.6vh;
+    left: 38.1vw;
   }
 }
 // @keyframes hookDown {
