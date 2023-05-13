@@ -1,5 +1,6 @@
 var scrolledUp = true;
 var scrolledDown = false;
+var gameStarted = false;
 
 const clouds = ['./images/cloud (1).svg', './images/cloud-16-filled.svg', './images/cloud-20-solid.svg', './images/cloud-bold.svg', './images/cloud-filled.svg', './images/cloud.svg']
 function randomVh() {
@@ -11,7 +12,6 @@ function randomTime() {
 }
 
 $(window).on('load', function(){ 
-  console.log('load');
   window.scroll({
     top: 0,
     left: 0,
@@ -28,26 +28,49 @@ $(window).on('load', function(){
   }
   
 })
-
-$(window).on('mousedown', function(){
+function fishInteract(){
+  $(window).on('mousedown', function(){
   let rect1 = document.getElementById('hook').getBoundingClientRect();
-    let rect2 = document.getElementById('normFish').getBoundingClientRect();
-    var overlap = !(
-      rect1.right < rect2.left || 
-      rect1.left > rect2.right || 
-      rect1.bottom < rect2.top || 
-      rect1.top > rect2.bottom)
-    console.log(overlap)
+  let NFrect2 = document.getElementById('normFish').getBoundingClientRect();
+  let Srect2 = document.getElementById('shark').getBoundingClientRect();
+    var normFishOverlap = !(
+      rect1.right < NFrect2.left || 
+      rect1.left > NFrect2.right || 
+      rect1.bottom < NFrect2.top || 
+      rect1.top > NFrect2.bottom
+    )
+
+    var sharkOverlap = !(
+      rect1.right < Srect2.left || 
+      rect1.left > Srect2.right || 
+      rect1.bottom < Srect2.top || 
+      rect1.top > Srect2.bottom
+    )
   
-  if(overlap == true){
-  scrolledUp = true;
+  if(normFishOverlap == true){
+    $('#projectsTabID').css({'height': '100vh', 'display': 'flex'})
+    gameStarted = false;
+    scrolledUp = true;
+  
     $('.hook').css({'top': 0,'left': 0})
-    $(window).off()
     $('.hookLine').css({'top': 0,'left': 0})
     $(window).off();
+    
     document.getElementById('projectsTabID').scrollIntoView();
+  }else if(sharkOverlap == true && normFishOverlap == false){
+    $('#resumeTabID').css({'height': '100vh', 'display': 'flex'})
+    gameStarted = false;
+    scrolledUp = true;
+  
+    $('.hook').css({'top': 0,'left': 0})
+    $('.hookLine').css({'top': 0,'left': 0})
+    $(window).off();
+    
+    document.getElementById('resumeTabID').scrollIntoView();
   }
 })
+}
+
 
 window.addEventListener('keydown', function(e) {
   if(e.code == 32 && e.target == document.body) {
@@ -61,17 +84,20 @@ const element = document.querySelector('body');
 // add the event listener
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
-    startGame();
-    scrolledDown = true;
-    $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
-    $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
-    let animateHook = setTimeout(finishHookAnimation, 750)
-    e.preventDefault();
+    if(gameStarted == false){
+      gameStarted = true;
+      startGame();
+      fishInteract();
+      scrolledDown = true;
+      $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
+      $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
+      let animateHook = setTimeout(finishHookAnimation, 750)
+      e.preventDefault();
+    }
   }
 });
 
 function startGame(){
-  console.log('start')
   document.getElementById('beach').scrollIntoView();
 }
 var mouseX = window.innerWidth / 2;
@@ -88,12 +114,10 @@ function endScroll(){
 
 var timer = null;
 window.addEventListener('scroll', function() {
-  console.log('scrolled')  
   if(timer !== null) {
       clearTimeout(timer);
     }
     timer = setTimeout(function() {
-      console.log('finish scroll')
       if(scrolledDown == true){
         endScroll();
       }
@@ -102,7 +126,6 @@ window.addEventListener('scroll', function() {
 
 function finishHookAnimation(){
   $(window).on("click", function(){
-     console.log(mouseX + " " + mouseY)
     $('.hook').animate({'top': mouseY, 'left': mouseX})
     $('.hookLine').animate({'top': mouseY, 'left': (mouseX + $('.hook').width() - ($('.hookLine').width() * 2.3))})
   })

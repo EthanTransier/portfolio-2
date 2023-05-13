@@ -37,7 +37,7 @@
   top: 250vh;
   z-index: 4;
   width: 15.5vw;
-  height: auto;
+  height: 10rem;
   animation-name: normFishMovement;
   animation-timing-function: ease-in-out;
   animation-duration: 15s;
@@ -45,6 +45,40 @@
   animation-iteration-count: infinite;
   transition: ease-in-out 5s;
   animation-play-state: running;
+  background-image: url(../../images/fish.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 2rem;
+}
+
+.shark {
+  position: absolute;
+  top: 250vh;
+  z-index: 4;
+  width: 23vw;
+  height: 10rem;
+  animation-name: sharkMovement;
+  animation-timing-function: ease-in-out;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  transition: ease-in-out 5s;
+  animation-play-state: running;
+  background-image: url(../../images/shark.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  padding-left: 1.5rem;
 }
 
 @keyframes normFishMovement {
@@ -74,6 +108,36 @@
   }
   100% {
     transform: translate(0, 0) scale(-1, 1);
+  }
+}
+
+@keyframes sharkMovement {
+  0% {
+    transform: translate(0, 50vh) scale(1, 1);
+  }
+  37% {
+    transform: translate(43vw, 48vh) scale(1, 1);
+  }
+  38% {
+    transform: translate(44vw, 50vh) scale(-1, 1);
+  }
+  54% {
+    transform: translate(36vw, 14vh) scale(-1, 1);
+  }
+  55% {
+    transform: translate(36vw, 14vh) scale(1, 1);
+  }
+  80% {
+    transform: translate(65vw, 46vh) scale(1, 1);
+  }
+  81% {
+    transform: translate(65vw, 47vh) scale(-1, 1);
+  }
+  98% {
+    transform: translate(0, 50vh) scale(-1, 1);
+  }
+  100% {
+    transform: translate(0, 50vh) scale(1, 1);
   }
 }
 // @keyframes hookDown {
