@@ -11,12 +11,10 @@ function randomTime() {
   return Math.random() * 10000 + 25000
 }
 
+console.log(screen.height * 0.23)
+
 $(window).on('load', function(){ 
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  // document.getElementById('name').scrollIntoView()
 
 
   for(var i = 0; i < 5; i++){
@@ -243,9 +241,7 @@ function finishHookAnimation(){
   })
 }
 
-// let pauseAnimation = setInterval(function() {
-//   console.log('hook data: ')
-//   console.log(document.getElementById('hook').getBoundingClientRect())
-//   console.log('hook line data: ')
-//   console.log(document.getElementById('hookLine').getBoundingClientRect())
-// }, 1000)
+let pauseAnimation = setInterval(function() {
+  $('.canoeImage').css('animation-play-state', 'paused')
+  $('path').css('animation-play-state', 'paused')
+}, 0)

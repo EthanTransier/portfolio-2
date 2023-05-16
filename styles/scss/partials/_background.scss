@@ -3,11 +3,12 @@ body::-webkit-scrollbar {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.siteWrapper {
+  // -ms-overflow-style: none; /* IE and Edge */
+  // scrollbar-width: none; /* Firefox */
   height: auto;
-  overflow: hidden;
+  // overflow: scroll;
+  // position: fixed;
   //
 }
 .background {
@@ -19,7 +20,7 @@ body {
   .name {
     font-size: clamp(3.4rem, -0.137rem + 11.318vw, 10.7rem);
     @media screen and (max-width: 500px) {
-      font-size: clamp(3rem, 1.547rem + 4.651vw, 6rem);
+      font-size: clamp(1.65rem, 0rem + 10.56vw, 3.3rem);
     }
     width: 110vw;
     transform: translateX(-1.75vw) translateY(16vh);
@@ -221,7 +222,7 @@ body {
       z-index: 3;
       margin: 0 auto;
       width: 25vw;
-      height: 25vh;
+      height: auto;
       top: 0;
       left: 0;
       margin-left: 37.5vw;
@@ -248,7 +249,7 @@ body {
 
     @keyframes canoeAnimate {
       0% {
-        margin-top: 23vh;
+        margin-top: 59.4px;
         transform: rotate(4deg);
       }
       25% {
