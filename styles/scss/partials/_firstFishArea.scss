@@ -25,20 +25,17 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.hookPaused {
-  animation-play-state: paused;
-}
 .hookLine {
-  height: 105vh;
   width: 0.44vw;
+  height: 0;
   position: absolute;
-  top: 0;
-  left: 50vw;
-  right: 0;
-  bottom: 0;
+  top: -30vh;
+  left: 0;
   z-index: 10;
   background-color: black;
-  transform: translateY(-135vh);
+  transform: translate(-1vw, 1vh);
+  transition-property: transform;
+  transition-duration: 0.25s;
 }
 .normFish {
   position: absolute;
@@ -46,13 +43,7 @@
   z-index: 4;
   width: 15.5vw;
   height: 10rem;
-  animation-name: normFishMovement;
-  animation-timing-function: ease-in-out;
-  animation-duration: 15s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  transition: ease-in-out 5s;
-  animation-play-state: running;
+
   background-image: url(../../images/fish.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,19 +55,21 @@
   font-size: 2rem;
 }
 
+.normFishAnimation {
+  animation-name: normFishMovement;
+  animation-timing-function: ease-in-out;
+  animation-duration: 15s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  // transition: ease-in-out 5s;
+  animation-play-state: running;
+}
 .shark {
   position: absolute;
   top: 250vh;
   z-index: 4;
   width: 23vw;
   height: 10rem;
-  animation-name: sharkMovement;
-  animation-timing-function: ease-in-out;
-  animation-duration: 20s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  transition: ease-in-out 5s;
-  animation-play-state: running;
   background-image: url(../../images/shark.webp);
   background-repeat: no-repeat;
   background-size: contain;
@@ -89,63 +82,108 @@
   padding-left: 1.5rem;
 }
 
+.sharkAnimation {
+  animation-name: sharkMovement;
+  animation-timing-function: ease-in-out;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
 @keyframes normFishMovement {
   0% {
-    transform: translate(0, 0) scale(-1, 1);
+    top: 250vh;
+    left: 0vw;
+    transform: scale(-1, 1);
   }
   24% {
-    transform: translate(50vw, 50vh) scale(-1, 1);
+    top: 300vh;
+    left: 50vw;
+    transform: scale(-1, 1);
   }
   26% {
-    transform: translate(50vw, 50vh) scale(1, 1);
+    top: 300vh;
+    left: 50vw;
+    transform: scale(1, 1);
   }
   49% {
-    transform: translate(0, 25vh) scale(1, 1);
+    top: 275vh;
+    left: 0vw;
+    transform: scale(1, 1);
   }
   51% {
-    transform: translate(0, 22vh) scale(-1, 1);
+    top: 272vh;
+    left: 0vw;
+    transform: scale(-1, 1);
   }
   74% {
-    transform: translate(72vw, 5vh) scale(-1, 1);
+    top: 255vh;
+    left: 72vw;
+    transform: scale(-1, 1);
   }
   76% {
-    transform: translate(72vw, 5vh) scale(1, 1);
+    top: 255vh;
+    left: 72vw;
+    transform: scale(1, 1);
   }
   98% {
-    transform: translate(0, 0) scale(1, 1);
+    top: 250vh;
+    left: 0vw;
+    transform: scale(1, 1);
   }
   100% {
-    transform: translate(0, 0) scale(-1, 1);
+    top: 250vh;
+    left: 0vw;
+    transform: scale(-1, 1);
   }
 }
 
 @keyframes sharkMovement {
   0% {
-    transform: translate(0, 50vh) scale(1, 1);
+    left: 0vw;
+    top: 300vh;
+    transform: scale(1, 1);
   }
   37% {
-    transform: translate(43vw, 48vh) scale(1, 1);
+    left: 43vw;
+    top: 298vh;
+    transform: scale(1, 1);
   }
   38% {
-    transform: translate(44vw, 50vh) scale(-1, 1);
+    left: 44vw;
+    top: 300vh;
+    transform: scale(-1, 1);
   }
   54% {
-    transform: translate(36vw, 14vh) scale(-1, 1);
+    left: 36vw;
+    top: 264vh;
+    transform: scale(-1, 1);
   }
   55% {
-    transform: translate(36vw, 14vh) scale(1, 1);
+    left: 36vw;
+    top: 264vh;
+    transform: scale(1, 1);
   }
   80% {
-    transform: translate(65vw, 46vh) scale(1, 1);
+    left: 65vw;
+    top: 296vh;
+    transform: scale(1, 1);
   }
   81% {
-    transform: translate(65vw, 47vh) scale(-1, 1);
+    left: 65vw;
+    top: 297vh;
+    transform: scale(-1, 1);
   }
   98% {
-    transform: translate(0, 50vh) scale(-1, 1);
+    left: 0vw;
+    top: 300vh;
+    transform: scale(-1, 1);
   }
   100% {
-    transform: translate(0, 50vh) scale(1, 1);
+    left: 0vw;
+    top: 300vh;
+    transform: scale(1, 1);
   }
 }
 @keyframes hookAnimate {
@@ -170,6 +208,30 @@
     left: 38.1vw;
   }
 }
+
+// @keyframes hookLineAnimate {
+//   0% {
+//     top: 55.6vh;
+//     left: 42.6vw;
+//   }
+//   25% {
+//     top: 60vh;
+//     left: 42vw;
+//   }
+//   50% {
+//     top: 57vh;
+//     left: 42vw;
+//   }
+//   75% {
+//     top: 54vh;
+//     left: 42vw;
+//   }
+//   100% {
+//     top: 55.6vh;
+//     left: 42.6vw;
+//   }
+// }
+
 // @keyframes hookDown {
 //   0% {
 //     top: 0px;

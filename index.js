@@ -52,8 +52,27 @@ function fishInteract(){
     gameStarted = false;
     scrolledUp = true;
   
-    $('.hook').css({'top': 0,'left': 0})
-    $('.hookLine').css({'top': 0,'left': 0})
+    $('.hook').animate({'top': 0,'left': window.innerWidth * .5}, 500)
+    $('.hookLine').animate({'height': 0,'left': window.innerWidth * .5}, 500)
+
+    setTimeout(function(){
+      $('.hook').css('left', '45.5vw')
+      $('.hook').css('top', '0')
+      $('.hook').addClass('hookAnimation');
+      $('.hookLine').css('height', 0)
+      $('.hookLine').css('left', 0)
+      $('.hookLine').css('top', '-30vh')
+    }, 500)
+
+    let normFishTop = document.getElementById('normFish').getBoundingClientRect().top;
+    let normFishLeft = document.getElementById('normFish').getBoundingClientRect().left; 
+
+    $('.normFish').removeClass('normFishAnimation');
+
+    $('.normFish').css('top', normFishTop + vh(250))
+    $('.normFish').css('left', normFishLeft)
+
+    $('.normFish').animate({'top': 0, 'left': window.innerWidth * .5})
     $(window).off();
     
     document.getElementById('projectsTabID').scrollIntoView();
@@ -62,8 +81,28 @@ function fishInteract(){
     gameStarted = false;
     scrolledUp = true;
   
-    $('.hook').css({'top': 0,'left': 0})
-    $('.hookLine').css({'top': 0,'left': 0})
+    $('.hook').animate({'top': 0,'left': window.innerWidth * .5}, 500)
+    $('.hookLine').animate({'height': 0,'left': window.innerWidth * .5}, 500)
+
+    setTimeout(function(){
+      $('.hook').css('left', '45.5vw')
+      $('.hook').css('top', '0')
+      $('.hook').addClass('hookAnimation');
+      $('.hookLine').css('height', 0)
+      $('.hookLine').css('left', 0)
+      $('.hookLine').css('top', '-30vh')
+    }, 500)
+
+    let sharkTop = document.getElementById('shark').getBoundingClientRect().top;
+    let sharkLeft = document.getElementById('shark').getBoundingClientRect().left;
+
+    $('.shark').css('top', sharkTop + vh(250))
+    $('.shark').css('left', sharkLeft)
+    
+    $('.shark').removeClass('sharkAnimation');
+
+    $('.shark').animate({'top': 0, 'left': window.innerWidth * .5}, 500)
+    console.log(vh(-30))
     $(window).off();
     
     document.getElementById('resumeTabID').scrollIntoView();
@@ -78,24 +117,88 @@ window.addEventListener('keydown', function(e) {
   } 
 });
 
+function vh(percent) {
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  return (percent * h) / 100;
+}
+
+function vw(percent) {
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  return (percent * w) / 100;
+}
+
+
 // select the element you want to add the event listener to
 const element = document.querySelector('body');
+
+var hookTop;
+
+var hookRight;
+
+var hookLineTop;
+
+var array1 = [];
+
+var pageLocation = 1;
 
 // add the event listener
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
     if(gameStarted == false){
+      
+      pageLocation = 3
       gameStarted = true;
       startGame();
       fishInteract();
       scrolledDown = true;
-      let hookTop = document.getElementById('hook').getBoundingClientRect().top;
-    $('.hook').css('top', hookTop) 
-    $('.hook').removeClass('hookAnimation');
-    $('.hook').animate({'top': 2560,'left': window.innerWidth * .455}, 750)
-    $('.hookLine').animate({'top': 2560,'left': window.innerWidth * .5}, 750)
-    let animateHook = setTimeout(finishHookAnimation, 750)
-    e.preventDefault();
+
+      $('.normFish').addClass('normFishAnimation');
+      $('.shark').addClass('sharkAnimation');
+
+      $('.hookLine').css('transform', 'translate(-1vw, 1vh)')
+      
+      hookTop = document.getElementById('hook').getBoundingClientRect().top;
+
+      array1.push(hookTop)
+
+      let hookLeft = document.getElementById('hook').getBoundingClientRect().left;
+
+      hookRight = document.getElementById('hook').getBoundingClientRect().right
+
+      console.log(hookRight)
+
+      $('.hookLine').css('left', hookRight)
+      $('.hookLine').css('top', array1[0] - vh(30))
+      
+      $('.hook').css('top', hookTop)
+      $('.hook').css('left', hookLeft)
+      
+      hookLineTop = document.getElementById('hookLine').getBoundingClientRect().top;
+      let hookLineLeft = document.getElementById('hookLine').getBoundingClientRect().left;
+
+      array1.push(hookLineTop)
+      
+
+      $('.hook').removeClass('hookAnimation');
+
+      
+      $('.hook').animate({'top': 2560,'left': window.innerWidth * .4445}, 750)
+      // console.log(distance)
+      // console.log(hookLineTop)
+
+      // let distance2 = 2560 - hookLineTop
+      
+      // // $('.hookLine').css('height', distance)
+
+      $('.hookLine').animate({'left': window.innerWidth * .5, 'height': 2560 - array1[1]}, 750)
+      console.log(hookLineTop)
+      // // $('.hookLine').css('transform', 'translateY(-135vh)')
+      let animateHook = setTimeout(finishHookAnimation, 750)
+      e.preventDefault();
+    }
+  }else if(e.keyCode == '40'){
+    if(pageLocation == 3){
+      
     }
   }
 });
@@ -128,18 +231,21 @@ window.addEventListener('scroll', function() {
 }, false); 
 
 function finishHookAnimation(){
+  $('#resumeTabID').css({'height': '0', 'display': 'none'})
+      $('#projectsTabID').css({'height': '0', 'display': 'none'})
   $(window).on("click", function(){
      console.log(mouseX + " " + mouseY)
 
+    $('.hookLine').css('transform', 'none')
+    $('.hook').animate({'top': mouseY, 'left': mouseX}, 250)
+    $('.hookLine').animate({'height': mouseY, 'top': '-30vh', 'left': (mouseX + $('.hook').width() - ($('.hookLine').width() * 2.3))}, 250)
     
-    $('.hook').animate({'top': mouseY, 'left': mouseX})
-    $('.hookLine').animate({'top': mouseY, 'left': (mouseX + $('.hook').width() - ($('.hookLine').width() * 2.3))})
   })
 }
 
-let pauseAnimation = setInterval(function() {
-  console.log('hook data: ')
-  console.log(document.getElementById('hook').getBoundingClientRect())
-  console.log('hook line data: ')
-  console.log(document.getElementById('hookLine').getBoundingClientRect())
-}, 1000)
+// let pauseAnimation = setInterval(function() {
+//   console.log('hook data: ')
+//   console.log(document.getElementById('hook').getBoundingClientRect())
+//   console.log('hook line data: ')
+//   console.log(document.getElementById('hookLine').getBoundingClientRect())
+// }, 1000)
