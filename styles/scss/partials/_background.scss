@@ -1,16 +1,15 @@
 body::-webkit-scrollbar {
   display: none;
 }
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  height: auto;
+  overflow: hidden;
+}
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.siteWrapper {
-  // -ms-overflow-style: none; /* IE and Edge */
-  // scrollbar-width: none; /* Firefox */
-  height: auto;
-  // overflow: scroll;
-  // position: fixed;
-  //
-}
+
 .background {
   min-height: 100vh;
   width: 100vw;
@@ -249,23 +248,23 @@ body::-webkit-scrollbar {
 
     @keyframes canoeAnimate {
       0% {
-        margin-top: 59.4px;
+        margin-top: 8vh;
         transform: rotate(4deg);
       }
       25% {
-        margin-top: 27vh;
+        margin-top: 12vh;
         transform: rotate(-1deg);
       }
       50% {
-        margin-top: 24vh;
+        margin-top: 9vh;
         transform: rotate(-4deg);
       }
       75% {
-        margin-top: 21vh;
+        margin-top: 6vh;
         transform: rotate(0deg);
       }
       100% {
-        margin-top: 23vh;
+        margin-top: 8vh;
         transform: rotate(4deg);
       }
     }

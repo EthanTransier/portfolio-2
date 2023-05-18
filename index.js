@@ -14,7 +14,7 @@ function randomTime() {
 console.log(screen.height * 0.23)
 
 $(window).on('load', function(){ 
-  // document.getElementById('name').scrollIntoView()
+  $(this).scrollTop(0);
 
 
   for(var i = 0; i < 5; i++){
@@ -196,7 +196,7 @@ window.addEventListener('keydown', function(e) {
     }
   }else if(e.keyCode == '40'){
     if(pageLocation == 3){
-      
+      document.getElementById('secondFishArea').scrollIntoView()
     }
   }
 });
@@ -241,7 +241,7 @@ function finishHookAnimation(){
   })
 }
 
-let pauseAnimation = setInterval(function() {
-  $('.canoeImage').css('animation-play-state', 'paused')
-  $('path').css('animation-play-state', 'paused')
-}, 0)
+// let pauseAnimation = setInterval(function() {
+//   $('.canoeImage').css('animation-play-state', 'paused')
+//   $('path').css('animation-play-state', 'paused')
+// }, 0)
