@@ -1,0 +1,18 @@
+.screenBlocker {
+  width: 150vw;
+  height: 0;
+  background-color: black;
+  color: white;
+  @include font(bold);
+  font-size: 5rem;
+  text-align: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  @media screen and (max-width: 1400px) {
+    display: flex;
+    height: 1000vh;
+  }
+}

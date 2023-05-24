@@ -10,13 +10,27 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.75rem;
-  .upArrow {
-    height: 6vh;
-    width: auto;
-  }
   .downArrow {
     height: 6vh;
     width: auto;
     transform: rotate(180deg);
+  }
+}
+
+.controlsContainer2 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  top: 85vh;
+  right: 0;
+  z-index: 51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  .upArrow {
+    height: 6vh;
+    width: auto;
   }
 }

@@ -1,0 +1,142 @@
+.aboutTab {
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  height: 0;
+  display: none;
+  left: 0;
+  top: 100vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.selfieDescContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  .profilePicture {
+    height: auto;
+    width: 15vw;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-color: rgb(0, 16, 118);
+    border-width: 2px;
+    border-style: solid;
+    object-fit: contain;
+    background-color: #b4b2a5;
+    aspect-ratio: 1/1;
+  }
+  .desc {
+    @include font(regular);
+    font-size: 3rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 3vw;
+  }
+}
+
+.codingBoxesContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.codingBox {
+  width: 300px;
+  @include font(regular);
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.codingTitle {
+  width: 100%;
+  color: white;
+}
+.codingText {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+}
+.htmlTitle {
+  background-color: rgba(255, 111, 0, 0.754);
+}
+.htmlInfoBox {
+  background-color: rgba(255, 148, 66, 0.781);
+}
+.htmlPercentageBox {
+  width: 294px;
+  height: 50px;
+  border: rgb(255, 119, 0) 3px solid;
+  margin-top: 10px;
+  display: flex;
+}
+.htmlPercentage {
+  height: 100%;
+  width: calc(294px * 0.89);
+  background-color: rgb(255, 119, 0);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cssTitle {
+  background-color: rgba(0, 201, 0, 0.754);
+}
+.cssInfoBox {
+  background-color: rgba(101, 255, 121, 0.781);
+}
+.cssPercentageBox {
+  width: 294px;
+  height: 50px;
+  border: rgb(1, 224, 57) 3px solid;
+  margin-top: 10px;
+  display: flex;
+}
+
+.cssPercentage {
+  height: 100%;
+  width: calc(294px * 0.84);
+  background-color: rgb(1, 224, 57);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.javascriptTitle {
+  background-color: rgba(115, 0, 255, 0.754);
+}
+.javascriptInfoBox {
+  background-color: rgba(170, 101, 255, 0.781);
+}
+.javascriptPercentageBox {
+  width: 294px;
+  height: 50px;
+  border: rgb(90, 1, 224) 3px solid;
+  margin-top: 10px;
+  display: flex;
+}
+
+.javascriptPercentage {
+  height: 100%;
+  width: calc(294px * 0.71);
+  background-color: rgb(90, 1, 224);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  @include font(regular);
+  font-size: 1.75rem;
+  margin-top: 2rem;
+}
